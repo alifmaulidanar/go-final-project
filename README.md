@@ -127,4 +127,4 @@ Feel free to test the API endpoints using the live demo.
 
 ## Postman Collection
 
-You can find the Postman collection to test the API in the repository under `Base Trade API - Alif Maulidanar.json`.
+You can find the Postman collection to test the API in the repository under `Base Trade API - Alif Maulidanar.postman_collection.json`.
