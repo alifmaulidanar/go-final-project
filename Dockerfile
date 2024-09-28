@@ -1,5 +1,5 @@
 # Use the official Golang image for building the application
-FROM golang:1.17 AS build
+FROM golang:1.22.5 AS build
 
 # Set the current working directory inside the container
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN go build -o main .
 
 # Start a new stage from scratch
-FROM golang:1.17
+FROM golang:1.22.5
 
 # Set the working directory
 WORKDIR /app
