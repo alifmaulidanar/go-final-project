@@ -10,23 +10,21 @@ import (
 
 // Initializes the MySQL database (raw SQL)
 func InitDB() (*sql.DB, error) {
-	// Get the MySQL DSN from environment variables
-	dsn := os.Getenv("MYSQL_PUBLIC_URL") // Ensure this is correctly set in Railway
-	if dsn == "" {
+	// Get the MySQL DSN from environment variables (in URL format from Railway)
+	url := os.Getenv("MYSQL_PUBLIC_URL")
+	if url == "" {
 		log.Fatal("MYSQL_PUBLIC_URL environment variable is required but not set")
 	}
 
-	// Add "tcp()" if not already present
-	if !containsTcpWrapper(dsn) {
-		dsn = addTcpWrapper(dsn)
-	}
+	// Convert to Go's MySQL DSN format
+	dsn := convertToMySQLDSN(url)
 
-	// Connect to the MySQL database
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		return nil, err
 	}
 
+	// Test the connection
 	if err := db.Ping(); err != nil {
 		return nil, err
 	}
@@ -35,11 +33,11 @@ func InitDB() (*sql.DB, error) {
 	return db, nil
 }
 
-// Helper function to ensure the DSN is using tcp()
-func containsTcpWrapper(dsn string) bool {
-	return len(dsn) >= 4 && dsn[0:4] == "tcp("
-}
+// Converts the Railway connection string to Go's MySQL DSN format
+func convertToMySQLDSN(url string) string {
+	url = url[len("mysql://"):]
+	dsn := url[:len(url)-1]
+	dsn = dsn[:len(dsn)-1] + "@tcp(" + dsn[len(dsn)-1:]
 
-func addTcpWrapper(dsn string) string {
-	return "@tcp(" + dsn + ")"
+	return dsn
 }
