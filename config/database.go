@@ -2,23 +2,25 @@ package config
 
 import (
 	"database/sql"
+	"fmt"
 	"log"
 	"os"
 
 	_ "github.com/go-sql-driver/mysql"
 )
 
-// Initializes the MySQL database (raw SQL)
 func InitDB() (*sql.DB, error) {
-	// Get the MySQL DSN from environment variables (in URL format from Railway)
-	url := os.Getenv("MYSQL_PUBLIC_URL")
-	if url == "" {
-		log.Fatal("MYSQL_PUBLIC_URL environment variable is required but not set")
-	}
+	// Get environment variables directly
+	dbUser := os.Getenv("MYSQLUSER")
+	dbPassword := os.Getenv("MYSQL_ROOT_PASSWORD")
+	dbHost := os.Getenv("RAILWAY_PRIVATE_DOMAIN") // or use RAILWAY_TCP_PROXY_DOMAIN if needed
+	dbPort := os.Getenv("MYSQLPORT")
+	dbName := os.Getenv("MYSQL_DATABASE")
 
-	// Convert to Go's MySQL DSN format
-	dsn := convertToMySQLDSN(url)
+	// Build the DSN string
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
 
+	// Connect to MySQL
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		return nil, err
@@ -31,13 +33,4 @@ func InitDB() (*sql.DB, error) {
 
 	log.Println("Connected to the MySQL database")
 	return db, nil
-}
-
-// Converts the Railway connection string to Go's MySQL DSN format
-func convertToMySQLDSN(url string) string {
-	url = url[len("mysql://"):]
-	dsn := url[:len(url)-1]
-	dsn = dsn[:len(dsn)-1] + "@tcp(" + dsn[len(dsn)-1:]
-
-	return dsn
 }
