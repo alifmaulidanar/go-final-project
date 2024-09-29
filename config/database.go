@@ -11,11 +11,15 @@ import (
 
 // Initializes the MySQL database (raw SQL)
 func InitDB() (*sql.DB, error) {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("Error loading .env file: %v", err)
+	// Load .env file only in local environment
+	if os.Getenv("RAILWAY_ENVIRONMENT") == "" {
+		err := godotenv.Load()
+		if err != nil {
+			log.Println("Error loading .env file, falling back to system environment variables")
+		}
 	}
 
+	// Get the MySQL DSN from environment variables
 	dsn := os.Getenv("MYSQL_PUBLIC_URL")
 	if dsn == "" {
 		log.Fatal("MYSQL_PUBLIC_URL environment variable is required but not set")
