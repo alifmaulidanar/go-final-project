@@ -11,11 +11,16 @@ import (
 
 func InitDB() (*sql.DB, error) {
 	// Get environment variables directly
-	dbUser := os.Getenv("MYSQLUSER")                // MySQL username
-	dbPassword := os.Getenv("MYSQL_ROOT_PASSWORD")  // MySQL root password
-	dbHost := os.Getenv("RAILWAY_TCP_PROXY_DOMAIN") // Railway TCP proxy domain
-	dbPort := os.Getenv("RAILWAY_TCP_PROXY_PORT")   // Railway TCP proxy port (33353 in this case)
-	dbName := os.Getenv("MYSQL_DATABASE")           // MySQL database name
+	dbUser := os.Getenv("MYSQLUSER")
+	dbPassword := os.Getenv("MYSQL_ROOT_PASSWORD")
+	dbHost := os.Getenv("MYSQLHOST")     // Make sure this is set to the correct host
+	dbPort := os.Getenv("MYSQLPORT")     // Ensure the correct port is provided
+	dbName := os.Getenv("MYSQLDATABASE") // Confirm the database name
+
+	// Check if any variables are empty
+	if dbUser == "" || dbPassword == "" || dbHost == "" || dbPort == "" || dbName == "" {
+		log.Fatal("One or more required environment variables are missing")
+	}
 
 	// Build the DSN string
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
