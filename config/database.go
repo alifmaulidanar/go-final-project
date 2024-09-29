@@ -13,7 +13,7 @@ func InitDB() (*sql.DB, error) {
 	// Get environment variables directly
 	dbUser := os.Getenv("MYSQLUSER")
 	dbPassword := os.Getenv("MYSQL_ROOT_PASSWORD")
-	dbHost := os.Getenv("RAILWAY_PRIVATE_DOMAIN") // or use RAILWAY_TCP_PROXY_DOMAIN if needed
+	dbHost := os.Getenv("MYSQL_PRIVATE_DOMAIN") // or use RAILWAY_TCP_PROXY_DOMAIN if needed
 	dbPort := os.Getenv("MYSQLPORT")
 	dbName := os.Getenv("MYSQL_DATABASE")
 
