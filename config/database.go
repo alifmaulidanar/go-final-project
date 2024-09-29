@@ -2,7 +2,6 @@ package config
 
 import (
 	"database/sql"
-	"fmt"
 	"log"
 	"os"
 
@@ -17,13 +16,10 @@ func InitDB() (*sql.DB, error) {
 		log.Fatalf("Error loading .env file: %v", err)
 	}
 
-	dbUser := os.Getenv("DB_USER")
-	dbPassword := os.Getenv("DB_PASSWORD")
-	dbHost := os.Getenv("DB_HOST")
-	dbPort := os.Getenv("DB_PORT")
-	dbName := os.Getenv("DB_NAME")
-
-	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s", dbUser, dbPassword, dbHost, dbPort, dbName)
+	dsn := os.Getenv("MYSQL_PUBLIC_URL")
+	if dsn == "" {
+		log.Fatal("MYSQL_PUBLIC_URL environment variable is required but not set")
+	}
 
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
