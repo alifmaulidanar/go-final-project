@@ -10,8 +10,11 @@
 			"name": "Auth",
 			"item": [
 				{
-					"name": "Register",
+					"name": "Register Admin",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -51,8 +54,11 @@
 					"response": []
 				},
 				{
-					"name": "Login",
+					"name": "Login Admin",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -89,8 +95,11 @@
 			"name": "Products",
 			"item": [
 				{
-					"name": "Get All",
+					"name": "Get All Products",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -121,8 +130,11 @@
 					"response": []
 				},
 				{
-					"name": "Get by UUID",
+					"name": "Get Product by UUID",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -137,7 +149,7 @@
 							"variable": [
 								{
 									"key": "uuid",
-									"value": "eb554526-2771-4217-bca0-b8208c2375a7"
+									"value": "b594eea0-ef75-4c67-951c-46dd3b465ad2"
 								}
 							]
 						}
@@ -145,18 +157,8 @@
 					"response": []
 				},
 				{
-					"name": "Create",
+					"name": "Create Product",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MSwiZW1haWwiOiJhbGlmQGV4YW1wbGUuY29tIiwiZXhwIjoxNzI3Nzg1MzU0fQ.vu7F-v6NfWSCMaxdLCBnFfhTUAO6hbKPelvo-jH8KE8",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -187,18 +189,8 @@
 					"response": []
 				},
 				{
-					"name": "Update",
+					"name": "Update Product",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MiwiZW1haWwiOiJqb2huZG9lQGV4YW1wbGUuY29tIiwiZXhwIjoxNzI3Nzg1NDUzfQ.nMWlJHaIT47HpOjxNpwr3uIv85DlHr9Ew6rJHbXHrbw",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -206,7 +198,7 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "Nissan Serena 2024",
+									"value": "Lamborghini Gallardo LP",
 									"type": "text"
 								},
 								{
@@ -228,7 +220,7 @@
 							"variable": [
 								{
 									"key": "uuid",
-									"value": "eb554526-2771-4217-bca0-b8208c2375a7"
+									"value": "b594eea0-ef75-4c67-951c-46dd3b465ad2"
 								}
 							]
 						}
@@ -236,18 +228,8 @@
 					"response": []
 				},
 				{
-					"name": "Delete",
+					"name": "Delete Product",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MSwiZW1haWwiOiJhbGlmQGV4YW1wbGUuY29tIiwiZXhwIjoxNzI3Nzg1MzU0fQ.vu7F-v6NfWSCMaxdLCBnFfhTUAO6hbKPelvo-jH8KE8",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -262,7 +244,7 @@
 							"variable": [
 								{
 									"key": "uuid",
-									"value": "d975bccb-b870-45fb-b38d-b1fb59aa7232"
+									"value": "b594eea0-ef75-4c67-951c-46dd3b465ad2"
 								}
 							]
 						}
@@ -275,8 +257,11 @@
 			"name": "Variants",
 			"item": [
 				{
-					"name": "Get All",
+					"name": "Get All Variants",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -307,8 +292,11 @@
 					"response": []
 				},
 				{
-					"name": "Get by UUID",
+					"name": "Get Variant by UUID",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -324,7 +312,7 @@
 							"variable": [
 								{
 									"key": "uuid",
-									"value": "aaa8e0f0-06b9-40dc-9b0e-e9370b650c80",
+									"value": "405ebd71-e517-4aff-a846-3c96e899f71b",
 									"description": "uuid of variant"
 								}
 							]
@@ -333,18 +321,8 @@
 					"response": []
 				},
 				{
-					"name": "Create",
+					"name": "Create Variant",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MSwiZW1haWwiOiJhbGlmQGV4YW1wbGUuY29tIiwiZXhwIjoxNzI3Nzg1MzU0fQ.vu7F-v6NfWSCMaxdLCBnFfhTUAO6hbKPelvo-jH8KE8",
-									"type": "string"
-								}
-							]
-						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -357,12 +335,12 @@
 								},
 								{
 									"key": "quantity",
-									"value": "150",
+									"value": "100",
 									"type": "text"
 								},
 								{
 									"key": "product_id",
-									"value": "d975bccb-b870-45fb-b38d-b1fb59aa7232",
+									"value": "b594eea0-ef75-4c67-951c-46dd3b465ad2",
 									"description": "uuid of product",
 									"type": "text"
 								}
@@ -382,18 +360,8 @@
 					"response": []
 				},
 				{
-					"name": "Update",
+					"name": "Update Variant",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MywiZW1haWwiOiJhbGlmQGdtYWlsLmNvbSIsImV4cCI6MTcyNzc0OTQ0N30.p1P1NDo9j3T1Z7zMHJHCCQzhDqgZF7UsFLXf6RtNKKU",
-									"type": "string"
-								}
-							]
-						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -401,13 +369,13 @@
 							"formdata": [
 								{
 									"key": "variant_name",
-									"value": "Lenovo Thinkpad X1 Carbon",
+									"value": "Super Trofeo Stradale 2009",
 									"description": "string",
 									"type": "text"
 								},
 								{
 									"key": "quantity",
-									"value": "65",
+									"value": "90",
 									"description": "integer",
 									"type": "text"
 								}
@@ -426,7 +394,7 @@
 							"variable": [
 								{
 									"key": "uuid",
-									"value": "d9d991b3-adc9-4c3c-a5c2-60a4dc30084b",
+									"value": "f5eb74e4-87e4-4e74-abd6-a82e2a8da13c",
 									"description": "uuid of variant"
 								}
 							]
@@ -435,18 +403,8 @@
 					"response": []
 				},
 				{
-					"name": "Delete",
+					"name": "Delete Variant",
 					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbl9pZCI6MiwiZW1haWwiOiJqb2huZG9lQGV4YW1wbGUuY29tIiwiZXhwIjoxNzI3Nzg1NDUzfQ.nMWlJHaIT47HpOjxNpwr3uIv85DlHr9Ew6rJHbXHrbw",
-									"type": "string"
-								}
-							]
-						},
 						"method": "DELETE",
 						"header": [],
 						"url": {
@@ -462,7 +420,7 @@
 							"variable": [
 								{
 									"key": "uuid",
-									"value": "a60d8515-eadc-44c7-afc7-eacecddfc15d",
+									"value": "f5eb74e4-87e4-4e74-abd6-a82e2a8da13c",
 									"description": "uuid of variant"
 								}
 							]
