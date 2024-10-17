@@ -14,7 +14,7 @@ import (
 func InitializeCloudinary() (*cloudinary.Cloudinary, error) {
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatalf("Error loading .env file: %v", err)
+		log.Fatalf("Cloudinary Error loading .env file: %v", err)
 	}
 
 	// Get Cloudinary credentials from environment variables
