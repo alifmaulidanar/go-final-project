@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"net/http"
 
 	"final-project/config"
 	"final-project/routes"
@@ -19,6 +21,12 @@ func main() {
 
 	// Initialize the Gin router
 	r := gin.Default()
+
+	r.GET("/", func(c *gin.Context) {
+		port := 8080 // Define the port
+		message := fmt.Sprintf("Server running on %d", port)
+		c.String(http.StatusOK, message)
+	})
 
 	// Setup routes
 	routes.AdminRoutes(r, db)
