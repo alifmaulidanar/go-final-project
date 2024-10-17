@@ -21,6 +21,7 @@ To run and deploy this project, you will need:
 - **Go**: The primary programming language used to build this backend services.
 - **MySQL**: The relational database used for storing application data. The project interacts directly with MySQL without using an ORM (Object-Relational Mapping).
 - **Cloudinary**: A cloud-based service for managing and hosting images, used to store product images uploaded by admins.
+- **Git & GitHub**: Version Control System to versioning the project and connect to Railway for deployment.
 - **Railway**: A cloud deployment platform used for hosting and deploying the application.
 
 ## Libraries and Frameworks Used
@@ -117,14 +118,15 @@ air
 | DELETE | {{url}}/products/variants/:variantUUID             | Delete Variant      | ✅   |
 | GET    | {{url}}/products/variant/:variantUUID              | Get Variant by UUID | ❌   |
 
-## Deployment / Live Demo API
+## Deployment / Public URL API
 
-The project has been successfully deployed on Railway and can be accessed through the following link:
+The project has been successfully deployed on Railway and can be accessed through the following link: https://go-final-project-production-9f93.up.railway.app
 
-[Live Demo API](https://your-railway-url.com)
+Feel free to test the API endpoints using the public URL API from Postman or any API tester service. You can utilize Postman collection and environments below to easily setup your Postman workspace.
 
-Feel free to test the API endpoints using the live demo.
+## Postman Collection and Environments
 
-## Postman Collection
+You can find the Postman collection to test the API in the repository under the `/postman` folder. There are three exported Postman files:
 
-You can find the Postman collection to test the API in the repository under `Base Trade API - Alif Maulidanar.postman_collection.json`.
+1. A Postman collection named `Base Trade API - Alif Maulidanar.postman_collection.json`, and
+2. Two Postman environment files named `development.postman_environment.json` and `production.postman_environment.json`.
