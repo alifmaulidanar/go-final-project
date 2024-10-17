@@ -2,22 +2,15 @@ package config
 
 import (
 	"context"
-	"log"
 	"os"
 
 	"github.com/cloudinary/cloudinary-go/v2"
 	"github.com/cloudinary/cloudinary-go/v2/api/uploader"
-	"github.com/joho/godotenv"
 )
 
-// InitializeCloudinary initializes Cloudinary client
+// Initialize Cloudinary initializes Cloudinary client
 func InitializeCloudinary() (*cloudinary.Cloudinary, error) {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatalf("Cloudinary Error loading .env file: %v", err)
-	}
-
-	// Get Cloudinary credentials from environment variables
+	// Get Cloudinary credentials from Railway variables
 	cloudName := os.Getenv("CLOUDINARY_CLOUD_NAME")
 	apiKey := os.Getenv("CLOUDINARY_API_KEY")
 	apiSecret := os.Getenv("CLOUDINARY_API_SECRET")
